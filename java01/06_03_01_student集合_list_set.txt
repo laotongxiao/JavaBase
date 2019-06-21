@@ -1,0 +1,66 @@
+package student.test01;
+
+public class Course {
+	private String id;
+	private String name;
+	public String getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Course(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+}
+
+-----------------------------class-----------------------------
+
+package student.test01;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class ListSet {
+	private Set<Course> listToSelect;
+	public Set<Course> getListToSelect(){
+		return listToSelect;
+	}
+	public void setListToSelect(Set<Course> listToSelect) {
+		this.listToSelect = listToSelect;
+	}
+	public ListSet() {
+		this.listToSelect = new HashSet<Course>();
+	}
+	public void testAdd() {
+		Course tr = new Course("1", "数据结构");
+		listToSelect.add(tr);
+	}
+	//set是无序的,只能用迭代器编历和foreach编历
+	public void testForEachSet() {
+		for(Course temp: listToSelect) {
+			System.out.println("课程ID：" + temp.getId() + "课程名称：" + temp.getName());
+		}
+	}
+}
+
+-----------------------------class-----------------------------
+
+package student.test01;
+
+public class StudentSetMain {
+
+	public static void main(String arg[]) {
+		ListSet test = new ListSet();
+		test.testAdd();
+		test.testForEachSet();
+	}
+
+}

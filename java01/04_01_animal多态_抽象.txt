@@ -1,0 +1,46 @@
+package animal.test01;
+
+abstract class Animal {
+	abstract void eat();//可有可无抽象办法而没有办法体
+}
+
+-----------------------------class-----------------------------
+
+package animal.test01;
+
+public class Cat extends Animal {
+    //一定要实现抽象办法
+    public void eat() {  
+        System.out.println("吃鱼");  
+    }  
+    public void work() {  
+        System.out.println("抓老鼠");  
+    }  
+}
+
+-----------------------------class-----------------------------
+
+package animal.test01;
+
+public class Dog extends Animal {
+   //一定要实现抽象办法
+    public void eat() {  
+        System.out.println("吃骨头");  
+    }  
+    public void work() {  
+        System.out.println("看家");  
+    }  
+}
+
+-----------------------------class-----------------------------
+
+package animal.test01;
+
+public class AnimalMain {
+	public static void main(String arg[]) {
+	      Animal a = new Cat();  // 向上转型  
+	      a.eat();               // 调用的是 Cat 的 eat
+	      Cat c = (Cat)a;        // 向下转型  
+	      c.work();        // 调用的是 Cat 的 work
+	}
+}

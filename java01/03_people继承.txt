@@ -1,0 +1,47 @@
+package people.test01;
+
+public class People {
+	private String name;
+	private int id;
+	public void eat(String myName , int myId) {
+		name = myName;
+		id = myId;
+		System.out.println("name:" + name);
+		System.out.println("id:" + id);
+		System.out.println("eat-----------");
+	}
+}
+
+-----------------------------class-----------------------------
+
+package people.test01;
+
+public class Man extends People {
+
+}
+
+-----------------------------class-----------------------------
+
+package people.test01;
+
+public class Woman extends People{
+	public void baby() {
+		System.out.println("baby-----");
+	}
+}
+
+-----------------------------class-----------------------------
+
+package people.test01;
+
+public class PeopleMain {
+	public static void main(String arg[]) {
+		People a1 = new People();
+		a1.eat("lao", 1);
+		Man a2 = new Man();
+		a2.eat("laoMan", 2);
+		Woman a3 = new Woman();
+		a3.eat("laoWoman", 3);
+		a3.baby();
+	}
+}

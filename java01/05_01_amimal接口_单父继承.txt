@@ -1,0 +1,73 @@
+package animal.test01;
+
+public interface Animal {
+	public void eat();
+	public void worker();
+}
+
+-----------------------------class-----------------------------
+
+package animal.test01;
+
+public interface Cat extends Animal{
+	public void set();
+}
+
+-----------------------------class-----------------------------
+
+package animal.test01;
+
+public class CatClass implements Cat{
+	public void eat() {
+		System.out.println("猫吃东西");
+	};
+	public void worker() {
+		System.out.println("猫睡觉");
+	};
+	public void set() {
+		System.out.println("它是猫");
+	};
+}
+
+
+-----------------------------class-----------------------------
+
+package animal.test01;
+
+public interface Dog extends Animal{
+	public void set();
+}
+
+-----------------------------class-----------------------------
+
+package animal.test01;
+
+public class DogClass implements Dog{
+	public void eat() {
+		System.out.println("狗吃东西");
+	};
+	public void worker() {
+		System.out.println("狗睡觉");
+	};
+	public void set() {
+		System.out.println("它是狗");
+	};
+}
+
+-----------------------------class-----------------------------
+
+package animal.test01;
+
+public class AnimalMain {
+	public static void main(String arg[]) {
+		CatClass a1 = new CatClass();
+		a1.eat();
+		a1.worker();
+		a1.set();
+		DogClass a2 = new DogClass();
+		a2.eat();
+		a2.worker();
+		a2.set();
+	}
+}
+

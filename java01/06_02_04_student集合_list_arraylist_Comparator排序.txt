@@ -1,0 +1,107 @@
+package student.test01;
+
+public class Course {
+	private String id;
+	private String name;
+	public String getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Course(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	public Course() {
+		
+	}
+
+}
+
+-----------------------------class-----------------------------
+
+package student.test01;
+
+import java.util.Comparator;
+
+public class CourseComparator implements Comparator<Course> {
+
+	public int compare(Course obj1, Course obj2) {
+		return obj1.getName().compareTo(obj2.getName());
+	}
+
+}
+
+-----------------------------class-----------------------------
+
+package student.test01;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+
+public class ListTest {
+	private List listToSelect;
+	public List getListToSelect() {
+		return listToSelect;
+	}
+	public void SetListToSelect(List listToSelect) {
+		this.listToSelect = listToSelect;
+	}
+	public ListTest() {
+		this.listToSelect = new ArrayList();
+	}
+	public void testAdd() {
+		Course tr1 = new Course("1", "c数据结构");
+		listToSelect.add(tr1);
+		Course temp = (Course)listToSelect.get(0);//把Object强转为 Course Object
+		System.out.println("课程ID：" + temp.getId() + "课程名称：" + temp.getName());
+		Course[] tr2 = {new Course("3", "a大学英语"), new Course("2", "b高等数学")};
+		listToSelect.addAll(Arrays.asList(tr2));//把数组变成集合
+		Course temp2 = (Course)listToSelect.get(1);
+		System.out.println("课程ID：" + temp2.getId() + "课程名称：" + temp2.getName());
+	}
+	public void getTest() {
+		int i;
+		System.out.println("list for编历");
+		for(i=0; i<listToSelect.size(); i++) {
+			Course temp3 = (Course)listToSelect.get(i);
+			System.out.println("课程ID：" + temp3.getId() + "课程名称：" + temp3.getName());
+		}
+	}
+	public void testForEach() {
+		System.out.println("list for each编历");
+		for(Object obj : listToSelect) {
+			Course temp = (Course) obj;
+			System.out.println("课程ID：" + temp.getId() + "课程名称：" + temp.getName());
+		}
+	}
+	public void testSort() {
+		System.out.println("排序后--------：");
+		Collections.sort(listToSelect, new CourseComparator());
+	}
+}
+
+-----------------------------class-----------------------------
+
+package student.test01;
+
+public class StudentListComparatorCollectionsSortMain {
+	public static void main(String arg[]) {
+		ListTest test = new ListTest();
+		test.testAdd();
+		test.testForEach();
+		test.testSort();
+		test.testForEach();
+	}
+}
+

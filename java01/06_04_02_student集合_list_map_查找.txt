@@ -1,0 +1,113 @@
+package student.test01;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Student {
+	private String id;
+	private String name;
+	private Set courses;
+	public String getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public Set getCourses() {
+		return courses;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setCourses(Set courses) {
+		this.courses = courses;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Student))
+			return false;
+		Student other = (Student) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+	public Student(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+	public Student() {
+		
+	}
+
+}
+
+-----------------------------class-----------------------------
+
+package student.test01;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+
+import java.util.Map.Entry;
+
+public class MapTest {
+	private Map<String, Student> students;
+	public Map<String, Student> getStudents(){
+		return students;
+	}
+	public void setStudents(Map<String, Student> students) {
+		this.students = students;
+	}
+	public MapTest() {
+		this.students = new HashMap<String, Student>();
+	}
+	public void testPut() {
+		Student stu1 = new Student("1","小明");
+		Student stu2 = new Student("2","小红");
+		Student stu3 = new Student("3","小兰");
+		students.put("a", stu1);
+		students.put("b", stu2);
+		students.put("c", stu3);
+	}
+	public void testContainsKeyOrValue() {
+		Student stu1 = new Student();
+		stu1.setId("a");
+		stu1.setName("小明");
+		Student temp = students.get("a");
+		System.out.println("所要查找学生 map key 为：" + "a" + " " + students.containsKey(stu1.getId()) + " " + "姓名为：" +temp.getName());
+		System.out.println("姓名为：" + stu1.getName() + " " + students.containsValue(stu1));
+	}
+}
+
+-----------------------------class-----------------------------
+
+package student.test01;
+
+public class StudentMapSearchMain {
+	public static void main(String arg[]) {
+		MapTest test = new MapTest();
+		test.testPut();
+		test.testKeySet();
+		test.testContainsKeyOrValue();
+	}
+}

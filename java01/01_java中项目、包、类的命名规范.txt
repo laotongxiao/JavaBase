@@ -1,0 +1,34 @@
+1、项目名
+
+全部小写。如：workdesk、jobserver。
+2、包名
+
+全部小写，名词。如：java.awt.event。
+3、类名、接口名
+
+首字母大写，多个单词组成时，每个单词的首字母大写。如：
+public class MyClass {}
+1
+4、方法名
+
+首字母小写，多个单词组成时，从第二个单词开始，每个单词的首字母大写。第一个单词一般为动词，如：
+public void toString() {}
+1
+5、变量名
+
+5.1 普通变量名
+
+同方法的命名，一般为名词。如：
+int index=0;
+1
+5.2 常量名（静态变量名）
+
+全部大写。如：
+public static final String GAME_COLOR=”RED”;
+1
+6、属性文件properties
+
+以下划线隔开。如：errors_zh_CN.properties，hibernate_test.properties
+7、数据库命名：
+
+表、字段命名全部大写，多个单词以_隔开
